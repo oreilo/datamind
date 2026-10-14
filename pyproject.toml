@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "oreilo-datamind"
+version = "2.0.0"
+description = "Auditable, self-hosted analytics workbench"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.30,<1", "pandas>=2.2,<3", "numpy>=1.26,<3", "sqlalchemy>=2,<3", "pydantic>=2,<3", "python-multipart>=0.0.9", "openpyxl>=3.1", "httpx>=0.27,<1", "typer>=0.12,<1", "jinja2>=3.1", "matplotlib>=3.8", "reportlab>=4.2", "python-docx>=1.1", "scikit-learn>=1.5,<2", "pyarrow>=16"]
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-cov>=5"]
+[project.scripts]
+datamind = "datamind.cli:app"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.setuptools.package-data]
+datamind = ["static/*"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
